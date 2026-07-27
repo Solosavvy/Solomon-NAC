@@ -36,14 +36,19 @@ else
     exit 1
 fi
 
-# 4. Inject ExoPlayer 2.19.1 dependency if missing in app/build.gradle
+# 4. Inject Capacitor & ExoPlayer dependencies if missing in app/build.gradle
 if [ -f "$BUILD_GRADLE" ]; then
+    if ! grep -q "project(':capacitor-android')" "$BUILD_GRADLE"; then
+        echo "Injecting project(':capacitor-android') dependency into $BUILD_GRADLE..."
+        sed -i.bak '/dependencies {/a \    implementation project('\''':capacitor-android'\'')\' "$BUILD_GRADLE" || true
+        rm -f "$BUILD_GRADLE.bak"
+    fi
     if ! grep -q "com.google.android.exoplayer:exoplayer" "$BUILD_GRADLE"; then
         echo "Injecting ExoPlayer 2.19.1 dependency into $BUILD_GRADLE..."
         sed -i.bak '/dependencies {/a \    implementation '\''com.google.android.exoplayer:exoplayer:2.19.1'\''\' "$BUILD_GRADLE" || true
         rm -f "$BUILD_GRADLE.bak"
     fi
-    echo "✓ Verified ExoPlayer dependency in $BUILD_GRADLE"
+    echo "✓ Verified Capacitor and ExoPlayer dependencies in $BUILD_GRADLE"
 fi
 
 # 5. Inject permissions & foreground service in AndroidManifest.xml
