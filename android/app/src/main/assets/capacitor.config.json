@@ -1,0 +1,8 @@
+{
+	"appId": "com.nac.choir",
+	"appName": "NAC Choir Audio",
+	"webDir": "dist",
+	"server": {
+		"androidScheme": "https"
+	}
+}
