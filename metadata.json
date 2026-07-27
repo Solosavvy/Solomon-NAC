@@ -1,0 +1,6 @@
+{
+  "name": "Capacitor Background Audio Plugin & Android CI",
+  "description": "Capacitor 5.x Android background audio plugin using ExoPlayer foreground service, with minimal Android project, JS wrapper, install script, and GitHub Actions CI workflow.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
