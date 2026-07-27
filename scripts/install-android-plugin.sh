@@ -36,11 +36,11 @@ else
     exit 1
 fi
 
-# 4. Inject ExoPlayer 2.20.0 dependency if missing in app/build.gradle
+# 4. Inject ExoPlayer 2.19.1 dependency if missing in app/build.gradle
 if [ -f "$BUILD_GRADLE" ]; then
-    if ! grep -q "com.google.android.exoplayer:exoplayer:2.20.0" "$BUILD_GRADLE"; then
-        echo "Injecting ExoPlayer 2.20.0 dependency into $BUILD_GRADLE..."
-        sed -i.bak '/dependencies {/a \    implementation '\''com.google.android.exoplayer:exoplayer:2.20.0'\''\' "$BUILD_GRADLE" || true
+    if ! grep -q "com.google.android.exoplayer:exoplayer" "$BUILD_GRADLE"; then
+        echo "Injecting ExoPlayer 2.19.1 dependency into $BUILD_GRADLE..."
+        sed -i.bak '/dependencies {/a \    implementation '\''com.google.android.exoplayer:exoplayer:2.19.1'\''\' "$BUILD_GRADLE" || true
         rm -f "$BUILD_GRADLE.bak"
     fi
     echo "✓ Verified ExoPlayer dependency in $BUILD_GRADLE"

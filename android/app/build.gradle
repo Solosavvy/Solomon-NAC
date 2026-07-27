@@ -49,5 +49,5 @@ dependencies {
     implementation 'com.capacitorjs:core:5.7.0'
 
     // ExoPlayer foreground audio streaming
-    implementation 'com.google.android.exoplayer:exoplayer:2.20.0'
+    implementation 'com.google.android.exoplayer:exoplayer:2.19.1'
 }

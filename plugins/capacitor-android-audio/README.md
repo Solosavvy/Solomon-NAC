@@ -1,13 +1,13 @@
 # Capacitor Android Background Audio Plugin (`NacAudio`)
 
-A native Android plugin for **Capacitor 5.x** that uses a foreground Service and Google ExoPlayer (`2.20.0`) to keep audio playing seamlessly when the application is backgrounded or the screen is locked.
+A native Android plugin for **Capacitor 5.x** that uses a foreground Service and Google ExoPlayer (`2.19.1`) to keep audio playing seamlessly when the application is backgrounded or the screen is locked.
 
 ## Features
 
 - **Foreground ExoPlayer Service**: Uses Android Foreground Service with notification controls (`MediaSession` / `MediaPlayback`) to prevent OS process killing.
 - **Background Playback**: Continues audio playback when switching apps or locking screen.
 - **Playback Controls**: Start, Play, Pause, Stop, Seek, and Get Status.
-- **ExoPlayer 2.20.0 Integration**: High-performance audio streaming.
+- **ExoPlayer 2.19.1 Integration**: High-performance audio streaming.
 
 ## Installation & Setup
 
@@ -22,7 +22,7 @@ chmod +x scripts/install-android-plugin.sh
 This script automatically:
 - Copies `AudioPlaybackService.kt` and `CapacitorAudioPlugin.kt` into `android/app/src/main/java/com/nac/choir/plugin/`
 - Injects required Android permissions (`FOREGROUND_SERVICE`, `FOREGROUND_SERVICE_MEDIA_PLAYBACK`, `INTERNET`) into `AndroidManifest.xml`
-- Adds `com.google.android.exoplayer:exoplayer:2.20.0` to `android/app/build.gradle`
+- Adds `com.google.android.exoplayer:exoplayer:2.19.1` to `android/app/build.gradle`
 - Registers `CapacitorAudioPlugin` in `MainActivity.kt`
 
 ### 2. Manual Permissions (if required)
@@ -46,7 +46,7 @@ In `android/app/build.gradle`:
 
 ```groovy
 dependencies {
-    implementation 'com.google.android.exoplayer:exoplayer:2.20.0'
+    implementation 'com.google.android.exoplayer:exoplayer:2.19.1'
 }
 ```
 
